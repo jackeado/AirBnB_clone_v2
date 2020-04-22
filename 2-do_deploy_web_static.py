@@ -8,7 +8,7 @@ web_static folder of your AirBnB Clone repo, using the function do_pack
 from fabric.api import *
 import os
 
-env.host = ["35.237.196.218", "34.224.58.38"]
+env.hosts = ["35.237.196.218", "34.224.58.38"]
 env.user = "ubuntu"
 
 
@@ -19,7 +19,7 @@ def do_deploy(archive_path):
 
     results = []
     res = put(archive_path, "/tmp")
-    result.append(res.succeeded)
+    results.append(res.succeeded)
     
     filename = os.path.filename(archive_path)
     if filename[-4:] == ".tgz":
@@ -34,5 +34,3 @@ def do_deploy(archive_path):
     run("rm -rf /data/web_static/current")
     run("ln -s" + newdir + "/data/web_static/current")
     return True
-
-    
