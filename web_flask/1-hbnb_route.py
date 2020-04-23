@@ -10,6 +10,7 @@ def index():
     """Route index"""
     return 'Hello HBNB!'
 
+
 @app.route('/hbnb', strict_slashes=False)
 def enroute():
     """Route /hbnb"""
